@@ -1,4 +1,4 @@
-
+import { writeFile, readFile } from 'fs/promises'
 
  class ProductsService{
     products = [
@@ -8,6 +8,15 @@
     { "nome": "Lapis", "qtde": 3, "preco": 5.8, "data_compra": "2023-03-02", "data_entrega": "2023-04-20" },
     { "nome": "Tesoura", "qtde": 1, "preco": 19.99, "data_compra": "2023-03-25", "data_entrega": "2023-04-13" }
 ];
+
+   async getStock () {
+        const stockProduct = await readFile('products.json', "utf-8")
+        return JSON.parse(stockProduct as any).map(({nome, qtde, preco }) => {
+            return {nome, qtde, preco, valorEstoque:qtde*preco}
+        })
+    }
+
 }
+
 
 export const productsService = new ProductsService

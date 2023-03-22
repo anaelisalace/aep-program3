@@ -13,6 +13,8 @@ routes.get('/health-check', healthCheckController.check)
 
 routes.post('/products', productsController.create) 
 routes.get('/products', productsController.read) 
+routes.get('/products-stock', productsController.readStock) 
+
 
 // 18 - estamos exportando a constante routes
 export default routes 
