@@ -1,11 +1,14 @@
-import { Schema, model, Document } from 'mongoose'
+import { Schema, model, Document } from "mongoose";
 
-const UserSchema = new Schema({
+const UserSchema = new Schema(
+  {
     email: String,
     firstName: String,
-    lastName: String
-}, {
-    timestamps: true
-})
+    lastName: String,
+  },
+  {
+    timestamps: true,
+  }
+);
 
-export default model('User', UserSchema)
+export default model("User", UserSchema);

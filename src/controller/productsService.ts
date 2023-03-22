@@ -1,22 +1,50 @@
-import { writeFile, readFile } from 'fs/promises'
+import { writeFile, readFile } from "fs/promises";
 
- class ProductsService{
-    products = [
-    { "nome": "Caneta", "qtde": 10, "preco": 7.99, "data_compra": "2023-03-15", "data_entrega": "2023-04-25" },
-    { "nome": "Impressora", "qtde": 0, "preco": 649.50, "data_compra": "2023-03-17", "data_entrega": "2023-05-26" },
-    { "nome": "Caderno", "qtde": 4, "preco": 27.10, "data_compra": "2023-03-10", "data_entrega": "2023-03-12" },
-    { "nome": "Lapis", "qtde": 3, "preco": 5.8, "data_compra": "2023-03-02", "data_entrega": "2023-04-20" },
-    { "nome": "Tesoura", "qtde": 1, "preco": 19.99, "data_compra": "2023-03-25", "data_entrega": "2023-04-13" }
-];
+class ProductsService {
+  products = [
+    {
+      nome: "Caneta",
+      qtde: 10,
+      preco: 7.99,
+      data_compra: "2023-03-15",
+      data_entrega: "2023-04-25",
+    },
+    {
+      nome: "Impressora",
+      qtde: 0,
+      preco: 649.5,
+      data_compra: "2023-03-17",
+      data_entrega: "2023-05-26",
+    },
+    {
+      nome: "Caderno",
+      qtde: 4,
+      preco: 27.1,
+      data_compra: "2023-03-10",
+      data_entrega: "2023-03-12",
+    },
+    {
+      nome: "Lapis",
+      qtde: 3,
+      preco: 5.8,
+      data_compra: "2023-03-02",
+      data_entrega: "2023-04-20",
+    },
+    {
+      nome: "Tesoura",
+      qtde: 1,
+      preco: 19.99,
+      data_compra: "2023-03-25",
+      data_entrega: "2023-04-13",
+    },
+  ];
 
-   async getStock () {
-        const stockProduct = await readFile('products.json', "utf-8")
-        return JSON.parse(stockProduct as any).map(({nome, qtde, preco }) => {
-            return {nome, qtde, preco, valorEstoque:qtde*preco}
-        })
-    }
-
+  async getStock() {
+    const stockProduct = await readFile("products.json", "utf-8");
+    return JSON.parse(stockProduct as any).map(({ nome, qtde, preco }) => {
+      return { nome, qtde, preco, valorEstoque: qtde * preco };
+    });
+  }
 }
 
-
-export const productsService = new ProductsService
+export const productsService = new ProductsService();

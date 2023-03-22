@@ -1,12 +1,11 @@
 import { Alunos } from "./Alunos";
 
-
 async function main() {
-    const novosAlunos = new Alunos()
+  const novosAlunos = new Alunos();
 
-    //novosAlunos.writeStudent()
+  //novosAlunos.writeStudent()
 
-    novosAlunos.readStudent()
+  novosAlunos.readStudent();
 }
 
-main()
+main();
